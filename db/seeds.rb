@@ -1,8 +1,15 @@
-User.create!(name:  "Example User",
-             email: "example@example.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+User.create!(name:  "Example Admin User",
+             email: "example_admin@example.com",
+             password:              "adminfoobar",
+             password_confirmation: "adminfoobar",
              admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
+             
+User.create!(name:  "Example Basic User",
+             email: "example_basic@example.com",
+             password:              "basicfoobar",
+             password_confirmation: "basicfoobar",
              activated: true,
              activated_at: Time.zone.now)
 
