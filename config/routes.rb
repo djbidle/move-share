@@ -8,11 +8,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'application#hello'
-  get 'signup' => 'users#new'
+  get    'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
