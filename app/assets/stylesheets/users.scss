@@ -1,3 +1,20 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* CSS used here will be applied after bootstrap.css */
+body {
+  background-color: #eaeaea;
+}
+
+img.avatar {
+  border: 1px solid #eee;
+}
+
+.only-bottom-margin {
+  margin-top: 0px;
+}
+
+.activity-mini {
+  padding-right: 15px;
+  float: left;
+}
