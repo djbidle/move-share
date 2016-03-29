@@ -18,10 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      #@user.send_activation_email
-      @user.activate #remove this line if email activation is enabled
+      #@user.send_activation_email #change migration to false!!!!!!!
       log_in @user
-      #redirect_to root_url
+      #redirect_to root_url #redirect to root if email activation
       redirect_back_or @user
     else
       render 'new'
