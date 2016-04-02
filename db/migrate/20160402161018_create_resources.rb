@@ -9,6 +9,7 @@ class CreateResources < ActiveRecord::Migration
       t.boolean :truck
       t.boolean :semi
       t.integer :mask
+      t.integer :workorder_id
 
       t.timestamps null: false
     end

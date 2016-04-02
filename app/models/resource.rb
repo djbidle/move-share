@@ -1,4 +1,5 @@
 class Resource < ActiveRecord::Base
+  belongs_to :workorder
   
   def update_mask()
     mask_value = 0

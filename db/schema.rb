@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402161018) do
+ActiveRecord::Schema.define(version: 20160402170855) do
 
   create_table "resources", force: :cascade do |t|
     t.boolean  "packing"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20160402161018) do
     t.boolean  "truck"
     t.boolean  "semi"
     t.integer  "mask"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "workorder_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,5 +43,21 @@ ActiveRecord::Schema.define(version: 20160402161018) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "workorders", force: :cascade do |t|
+    t.string   "origin"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "destination"
+    t.string   "distance_text"
+    t.float    "distance_value"
+    t.string   "duration_text"
+    t.integer  "duration_value"
+    t.boolean  "is_assigned"
+    t.integer  "accepted_by"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
 end
