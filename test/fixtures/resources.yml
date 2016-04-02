@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  packing: false
+  moving: false
+  rickshaw: false
+  car: false
+  van: false
+  truck: false
+  semi: false
+  mask: 1
+
+two:
+  packing: false
+  moving: false
+  rickshaw: false
+  car: false
+  van: false
+  truck: false
+  semi: false
+  mask: 1
