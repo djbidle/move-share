@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'serviceareas/new'
+
+  get 'serviceareas/create'
+
+  get 'workorders/new'
+
+  get 'workorders/create'
+
   get 'homepage/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -13,6 +21,13 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get    'show'    => 'user#show'
+  
+  get    'order'        => 'workorders#new'
+  post   'order'        => 'workorders#create'
+  
+  get    'area'        => 'serviceareas#new'
+  post   'area'        => 'serviceareas#create'
+  
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
