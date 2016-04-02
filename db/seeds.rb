@@ -7,7 +7,7 @@ User.create!(name:  "Example Admin User",
              password_confirmation: "adminfoobar",
              admin: true,
              activated: true,
-             activated_at: Time.zone.now).workorders.create!(origin: sa, destination: ea).update()
+             activated_at: Time.zone.now).workorders.create!(address: sa, destination: ea).update()
 =begin            
 User.create!(name:  "Example Basic User",
              email: "example_basic@example.com",

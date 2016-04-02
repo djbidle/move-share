@@ -1,10 +1,10 @@
 class Workorder < ActiveRecord::Base
   has_many :resources
   belongs_to :user
-  acts_as_mappable :auto_geocode=>{:field=>:origin, :error_message=>'Could not geocode address'}
+  acts_as_mappable :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
     
   def update()
-    matrix = Workorder.get_google_matrix(self.origin, self.destination)
+    matrix = Workorder.get_google_matrix(self.address, self.destination)
     self.update_column(:distance_text, matrix.distance_text)
     self.update_column(:distance_value, matrix.distance_in_meters)
     self.update_column(:duration_text, matrix.duration_text)

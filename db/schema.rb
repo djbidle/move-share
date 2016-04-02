@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402170855) do
+ActiveRecord::Schema.define(version: 20160402195611) do
 
   create_table "resources", force: :cascade do |t|
     t.boolean  "packing"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20160402170855) do
     t.integer  "workorder_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "serviceareas", force: :cascade do |t|
+    t.string   "address"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "radius"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160402170855) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "workorders", force: :cascade do |t|
-    t.string   "origin"
+    t.string   "address"
     t.float    "lat"
     t.float    "lng"
     t.string   "destination"

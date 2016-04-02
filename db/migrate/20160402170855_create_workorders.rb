@@ -1,7 +1,7 @@
 class CreateWorkorders < ActiveRecord::Migration
   def change
     create_table :workorders do |t|
-      t.string :origin
+      t.string :address
       t.float :lat
       t.float :lng
       t.string :destination
