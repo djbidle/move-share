@@ -1,2 +1,43 @@
 <h1>Workorders#new</h1>
 <p>Find me in app/views/workorders/new.html.erb</p>
+<div class="row">
+    <div class="col-lg-12 text-center v-center">
+        <div class="col-lg-12">
+                <%= form_for(@workorders) do |f| %>
+                  <%= f.label :address %><br />
+                  <%= f.text_field :address, class: "input-group input-group-lg col-sm-offset-4 col-sm-4" %><br /><br />
+            
+                  <%= f.label :destination %><br />
+                  <%= f.text_field :destination, class: "input-group input-group-lg col-sm-offset-4 col-sm-4" %><br /><br />
+                
+                    <%= fields_for(@resources) do |r| %>  
+                      
+                      
+                      <%= r.check_box :packing %>
+                      <%= r.label :packing %><br />
+                      
+                      <%= r.check_box :moving %>
+                      <%= r.label :moving %><br />
+                      
+                      <%= r.check_box :rickshaw %>
+                      <%= r.label :rickshaw %><br />
+                      
+                      <%= r.check_box :car %>
+                      <%= r.label :car %><br />
+                      
+                      <%= r.check_box :van %>
+                      <%= r.label :van %><br />
+                      
+                      <%= r.check_box :truck %>
+                      <%= r.label :truck %><br />
+                      
+                      <%= r.check_box :semi %>
+                      <%= r.label :semi %><br />
+                    <% end %>
+                    
+                  <%= f.submit "Create Work Order", class: "btn btn-lg btn-primary" %>
+                
+                <% end %>
+        </div>
+    </div>    
+</div>

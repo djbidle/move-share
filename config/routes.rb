@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   post   'area'        => 'serviceareas#create'
   
   resources :users
+  resources :workorders
+  resources :serviceareas
+  resources :resources
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(version: 20160402195611) do
     t.float    "lat"
     t.float    "lng"
     t.integer  "radius"
+    t.integer  "move_distance"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
