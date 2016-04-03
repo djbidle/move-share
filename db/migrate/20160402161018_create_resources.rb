@@ -10,6 +10,7 @@ class CreateResources < ActiveRecord::Migration
       t.boolean :semi
       t.integer :mask
       t.integer :workorder_id
+      t.integer :servicearea_id
 
       t.timestamps null: false
     end

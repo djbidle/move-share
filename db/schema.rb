@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20160402195611) do
     t.boolean  "semi"
     t.integer  "mask"
     t.integer  "workorder_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "servicearea_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "serviceareas", force: :cascade do |t|

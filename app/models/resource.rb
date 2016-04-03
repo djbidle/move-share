@@ -1,5 +1,6 @@
 class Resource < ActiveRecord::Base
   belongs_to :workorder
+  belongs_to :servicearea
   
   def update_mask()
     mask_value = 0

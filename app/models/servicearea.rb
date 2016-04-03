@@ -5,7 +5,7 @@ class Servicearea < ActiveRecord::Base
   
     
   def get_workorders()
-    Workorder.within(self.radius, :origin => [self.lat, self.lng])
+    temp = Workorder.within(self.radius, :origin => [self.lat, self.lng])
     #add trip distance filter
     #add resource filter
   end
