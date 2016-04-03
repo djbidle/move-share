@@ -1,6 +1,8 @@
 sa = "1546 MacPherson Drive, New Haven, IN 46774"
 ea = "1573 Dundee Drive, New Haven, IN 46774"
 
+am = {}
+
 User.create!(name:  "Example Admin User",
              email: "example_admin@example.com",
              password:              "adminfoobar",
@@ -8,7 +10,7 @@ User.create!(name:  "Example Admin User",
              admin: true,
              activated: true,
              activated_at: Time.zone.now).workorders.create!(address: sa, destination: ea).update()
-=begin            
+            
 User.create!(name:  "Example Basic User",
              email: "example_basic@example.com",
              password:              "basicfoobar",
@@ -16,7 +18,7 @@ User.create!(name:  "Example Basic User",
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
+50.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@example.net"
   password = "password"
@@ -27,4 +29,3 @@ User.create!(name:  "Example Basic User",
                activated: true,
                activated_at: Time.zone.now)
 end
-=end
