@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
+    background: image-url('photo-1422564030440-1ecae6e21f67') no-repeat center center; 
     position: relative;
     padding: 0px !important;
     margin: 0px !important;
@@ -11,5 +12,22 @@
     background-size: cover;
     overflow: hidden;
     background-color: #f7f6f6 !important;
-    justify-content: center;
+    text-align: center;
+}
+
+.signup-button {
+    background-color: #72bb53;
+    position: absolute; 
+    top: 825px; 
+    left: 50px; 
+    padding: 20px 20px 20px 20px;
+     color: #fff !important;
+    font-size: 150% !important;
+    
+}
+
+.signup-button:hover{
+    background-color: #55943A;
+    text-decoration: none;
+    
 }
