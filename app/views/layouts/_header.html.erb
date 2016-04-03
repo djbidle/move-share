@@ -1,6 +1,6 @@
 <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="#">MOVESHER</a>
+        <div class="navbar-header"><a class="navbar-brand" href="/">MOVESHER</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
                 <span class="icon-bar"></span><span class="icon-bar"></span>
@@ -8,14 +8,18 @@
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="/" class="user-titles">MOVEE</a>
+                <li><%= link_to "REQUEST SERVICE", order_path, method: "get", :class=>"user-titles" %>
                 </li>
                 <li><a href="/" class="user-titles">MOVER</a>
                 </li>
             </ul>
             <div class="nav navbar-nav navbar-right">
                 <li><a href="/" class="menu-links">HELP</a></li>
-                <li><a href="/login" class="menu-links">LOGIN IN</a></li>
+                <% if logged_in?  %>
+                    <li><%= link_to "Log Out", logout_path, method: "delete", :class=>"menu-links" %></li>
+                <% else %>
+                    <li><a href="/login" class="menu-links">LOGIN IN</a></li>
+                <% end %>
                 <li><a href="/signup" class="menu-button">BECOME A MOVER</a></li>
             </div> 
         </div>    
