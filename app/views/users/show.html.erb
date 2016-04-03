@@ -1,12 +1,12 @@
 <%= render 'layouts/header' %>
 <br>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-12 lead">User profile<hr></div>
+            <div class="col-md-12 lead">User Profile<hr></div>
           </div>
           <div class="row">
 			<div class="col-md-4 text-center">
@@ -24,26 +24,136 @@
                   <span class="text-muted">Email:</span> <%= @user.email %><br>
                   <span class="text-muted">Birth date:</span> 01.01.2001<br>
                   <span class="text-muted">Gender:</span> male<br><br>
-                  <small class="text-muted">Created: 01.01.2015</small>
+                  <small class="text-muted">Created: 04.03.2015</small>
                 </div>
-                <div class="col-md-6">
-                  <div class="activity-mini">
-                    <i class="glyphicon glyphicon-comment text-muted"></i> 500
-                  </div>
-                  <div class="activity-mini">
-                    <i class="glyphicon glyphicon-thumbs-up text-muted"></i> 1500
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <hr><button class="btn btn-default pull-right"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
+              <hr><button class="btn btn-default pull-right" onclick='/edit'><i class="glyphicon glyphicon-pencil"></i> Edit</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
+    <div class='container-fluid'>
+      <div class='well'><h3>Submitted Workorders</h3>
+          <% @user.workorders.each do |workorder| %>
+            <%= workorder.address %>
+            <%= workorder.destination %>
+            <%= workorder.distance_text %>
+            <%= workorder.duration_text %>
+            <% res = workorder.resources.first() %>
+            <% if res.packing %>
+              <p>packing</p>
+            <% end  %>
+            
+            <% if res.moving %>
+              <p>moving</p>
+            <% end  %>
+            
+            <% if res.rickshaw %>
+              <p>rickshaw</p>
+            <% end  %>
+            
+            <% if res.car %>
+              <p>car</p>
+            <% end  %>
+            
+            <% if res.van %>
+              <p>van</p>
+            <% end  %>
+            
+            <% if res.truck %>
+              <p>truck</p>
+            <% end  %>
+            
+            <% if res.semi %>
+              <p>semi</p>
+            <% end  %>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container-fluid'>
+  <div class='row'>
+
+<hr />
+<% @user.serviceareas.each do |servicearea| %>
+<% res = servicearea.resources.first() %>
+  <div>Service Area Info</div>
+  <%= servicearea.address %>
+  <%= servicearea.radius %>
+  <%= servicearea.move_distance %>
+  
+  <% if res.packing %>
+    <p>packing</p>
+  <% end  %>
+  
+  <% if res.moving %>
+    <p>moving</p>
+  <% end  %>
+  
+  <% if res.rickshaw %>
+    <p>rickshaw</p>
+  <% end  %>
+  
+  <% if res.car %>
+    <p>car</p>
+  <% end  %>
+  
+  <% if res.van %>
+    <p>van</p>
+  <% end  %>
+  
+  <% if res.truck %>
+    <p>truck</p>
+  <% end  %>
+  
+  <% if res.semi %>
+    <p>semi</p>
+  <% end  %>
+  <br /><div>---------------------------</div>
+  <% servicearea.get_workorders.each do |workorder| %>
+    <div>Returned work order</div>
+    <%= workorder.address %>
+    <%= workorder.destination %>
+    <%= workorder.distance_text %>
+    <%= workorder.duration_text %>
+    <% if res.packing %>
+    <p>packing</p>
+  <% end  %>
+  
+  <% if res.moving %>
+    <p>moving</p>
+  <% end  %>
+  
+  <% if res.rickshaw %>
+    <p>rickshaw</p>
+  <% end  %>
+  
+  <% if res.car %>
+    <p>car</p>
+  <% end  %>
+  
+  <% if res.van %>
+    <p>van</p>
+  <% end  %>
+  
+  <% if res.truck %>
+    <p>truck</p>
+  <% end  %>
+  
+  <% if res.semi %>
+    <p>semi</p>
+  <% end  %>
+  <% end %>
+<% end %>
   </div>
 </div>

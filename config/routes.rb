@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get    'show'    => 'user#show'
+  get    'edit'    => 'user#edit'
   
   get    'order'        => 'workorders#new'
   post   'order'        => 'workorders#create'
