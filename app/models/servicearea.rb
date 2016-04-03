@@ -4,8 +4,9 @@ class Servicearea < ActiveRecord::Base
   acts_as_mappable :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
   
     
-  #add filter for distance of move
   def get_workorders()
     Workorder.within(self.radius, :origin => [self.lat, self.lng])
+    #add trip distance filter
+    #add resource filter
   end
 end
