@@ -1,159 +1,127 @@
 <%= render 'layouts/header' %>
-<br>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-9">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-12 lead">User Profile<hr></div>
-          </div>
-          <div class="row">
-			<div class="col-md-4 text-center">
-              <img class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
-              display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120">
-            </div>
-            <div class="col-md-8">
-              <div class="row">
-                <div class="col-md-12">
-                  <h1 class="only-bottom-margin"><%= @user.name %></h1>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <span class="text-muted">Email:</span> <%= @user.email %><br>
-                  <span class="text-muted">Birth date:</span> 01.01.2001<br>
-                  <span class="text-muted">Gender:</span> male<br><br>
-                  <small class="text-muted">Created: 04.03.2015</small>
-                </div>
-                
-              </div>
+      <div class="container-fluid">
+        <div class="row">
+      		
+      		<div class="col-md-2">
+            <div class="well well-sm">
+                <div class="media">
+                  <div class="thumbnail pull-left">
+                    <img class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
+                      display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120"></div>
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading"><%= @user.name %></h4>
+                      <div>
+                        <span class="text-muted">Email: <%= @user.email %></span><br />
+                          <span class="text-muted">Birth Date:</span> 01.01.2001<br />
+                            <span class="text-muted">Gender:</span> male<br><br />
+                            <small class="text-muted">Created: 04.03.2016</small>
+                      </div>
+                  </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <hr><button class="btn btn-default pull-right" onclick='/edit'><i class="glyphicon glyphicon-pencil"></i> Edit</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class='container-fluid'>
-      <div class='well'><h3>Submitted Workorders</h3>
-          <% @user.workorders.each do |workorder| %>
-            <%= workorder.address %>
-            <%= workorder.destination %>
-            <%= workorder.distance_text %>
-            <%= workorder.duration_text %>
-            <% res = workorder.resources.first() %>
-            <% if res.packing %>
-              <p>packing</p>
-            <% end  %>
-            
-            <% if res.moving %>
-              <p>moving</p>
-            <% end  %>
-            
-            <% if res.rickshaw %>
-              <p>rickshaw</p>
-            <% end  %>
-            
-            <% if res.car %>
-              <p>car</p>
-            <% end  %>
-            
-            <% if res.van %>
-              <p>van</p>
-            <% end  %>
-            
-            <% if res.truck %>
-              <p>truck</p>
-            <% end  %>
-            
-            <% if res.semi %>
-              <p>semi</p>
-            <% end  %>
-          
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
+          <div class='col-md-10'>
+            <div class='well'><h3 class="text-center"><strong>Submitted Workorders</strong></h3>
+              <hr />
+                	<div class="row">
+                	<% @user.workorders.each do |workorder| %>
+                  <div class="col-md-12">
+                    <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h4>Workorder <%= workorder.id %></h4></div>  
+                    <div class="panel-body text-center"><span><strong>Address: </strong><%= workorder.address %></span><br />
+                                            <span><strong>Destination: </strong><%= workorder.destination %></span><br />
+                                            <span><strong>Distance: </strong><%= workorder.distance_text %></span><br />
+                                            <span><strong>Travel Time (approx.) </strong><%= workorder.duration_text %></span><br />
+                      <span><strong>Requested Resources:</strong></span><br />
+                      <% res = workorder.resources.first() %>
+                      <% if res.packing %>
+                        <span>packing <i class="fa fa-suitcase"></i></span><br />
+                      <% end  %>
+                      
+                      <% if res.moving %>
+                        <span>moving <i class="fa fa-arrows"></i></span><br />
+                      <% end  %>
+                      
+                      <% if res.rickshaw %>
+                        <span>rickshaw</span><br />
+                      <% end  %>
+                      
+                      <% if res.car %>
+                        <span>car <i class="fa fa-car"></i></span><br />
+                      <% end  %>
+                      
+                      <% if res.van %>
+                        <span>van</span><br />
+                      <% end  %>
+                      
+                      <% if res.truck %>
+                        <span>truck <i class="fa fa-truck"></i></span><br />
+                      <% end  %>
+                      
+                      <% if res.semi %>
+                        <span>semi <i class="fa fa-truck"></i></span><br />
+                      
+                      <% end  %>
+                  </div>
+                  </div>
+                  </div>
+                  <% end %>
+            
+            
+                  </div><!--end of row-->
+            </div>
+        </div>
 <div class='container-fluid'>
   <div class='row'>
-
-<hr />
-<% @user.serviceareas.each do |servicearea| %>
-<% res = servicearea.resources.first() %>
-  <div>Service Area Info</div>
-  <%= servicearea.address %>
-  <%= servicearea.radius %>
-  <%= servicearea.move_distance %>
-  
-  <% if res.packing %>
-    <p>packing</p>
-  <% end  %>
-  
-  <% if res.moving %>
-    <p>moving</p>
-  <% end  %>
-  
-  <% if res.rickshaw %>
-    <p>rickshaw</p>
-  <% end  %>
-  
-  <% if res.car %>
-    <p>car</p>
-  <% end  %>
-  
-  <% if res.van %>
-    <p>van</p>
-  <% end  %>
-  
-  <% if res.truck %>
-    <p>truck</p>
-  <% end  %>
-  
-  <% if res.semi %>
-    <p>semi</p>
-  <% end  %>
-  <br /><div>---------------------------</div>
-  <% servicearea.get_workorders.each do |workorder| %>
-    <div>Returned work order</div>
-    <%= workorder.address %>
-    <%= workorder.destination %>
-    <%= workorder.distance_text %>
-    <%= workorder.duration_text %>
-    <% if res.packing %>
-    <p>packing</p>
-  <% end  %>
-  
-  <% if res.moving %>
-    <p>moving</p>
-  <% end  %>
-  
-  <% if res.rickshaw %>
-    <p>rickshaw</p>
-  <% end  %>
-  
-  <% if res.car %>
-    <p>car</p>
-  <% end  %>
-  
-  <% if res.van %>
-    <p>van</p>
-  <% end  %>
-  
-  <% if res.truck %>
-    <p>truck</p>
-  <% end  %>
-  
-  <% if res.semi %>
-    <p>semi</p>
-  <% end  %>
-  <% end %>
-<% end %>
-  </div>
+    <div class='col-md-10'>
+            <div class='well'><h3 class="text-center"><strong>Service Locations</strong></h3>
+              <hr />
+                	<div class="row">
+                	<% @user.serviceareas.each do |servicearea| %>
+                  <% res = servicearea.resources.first() %>
+                  <div class="col-md-12">
+                    <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h4>Service Area Info</h4></div>  
+                    <div class="panel-body text-center"><span><strong>Address: </strong><%= servicearea.address %></span><br />
+                                            <span><strong>Service Location Area: </strong><%= servicearea.radius %></span><br />
+                                            <span><strong>Distance: </strong><%= servicearea.move_distance %></span><br />
+                                            
+                      <span><strong>Services Requested:</strong></span><br />
+                            <% if res.packing %>
+                              <span>packing</span><br />
+                            <% end  %>
+                            
+                            <% if res.moving %>
+                              <span>moving</span><br />
+                            <% end  %>
+                            
+                            <% if res.rickshaw %>
+                              <span>rickshaw</span><br />
+                            <% end  %>
+                            
+                            <% if res.car %>
+                              <span>car</span><br />
+                            <% end  %>
+                            
+                            <% if res.van %>
+                              <span>van</span><br />
+                            <% end  %>
+                            
+                            <% if res.truck %>
+                              <span>truck</span><br />
+                            <% end  %>
+                            
+                            <% if res.semi %>
+                              <span>semi</span><br />
+                            <% end  %>
+                        </div>
+                        </div>
+                        </div>
+                        <% end %>  
+                 </div>  
+        </div>
+    </div>
+ </div><!--end of row-->
 </div>
+ 
