@@ -6,7 +6,7 @@ class Servicearea < ActiveRecord::Base
     
   def get_workorders()
     temp = Workorder.within(self.radius, :origin => [self.lat, self.lng])
-    #add trip distance filter
-    #add resource filter
+    temp = temp.where("distance_value <= ?", self.move_distance)
+    #temp = temp.resources.where("mask <= ?", self.resources.first.mask)
   end
 end
