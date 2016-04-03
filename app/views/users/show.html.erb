@@ -74,6 +74,8 @@
         </div>
 <div class='container-fluid'>
   <div class='row'>
+    <div class="col-md-2">
+    </div>
     <div class='col-md-10'>
             <div class='well'><h3 class="text-center"><strong>Service Locations</strong></h3>
               <hr />
@@ -82,38 +84,39 @@
                   <% res = servicearea.resources.first() %>
                   <div class="col-md-12">
                     <div class="panel panel-default">
-                    <div class="panel-heading text-center"><h4>Service Area Info</h4></div>  
+                    <div class="panel-heading text-center"><h4>Service Area</h4></div>  
                     <div class="panel-body text-center"><span><strong>Address: </strong><%= servicearea.address %></span><br />
                                             <span><strong>Service Location Area: </strong><%= servicearea.radius %></span><br />
                                             <span><strong>Distance: </strong><%= servicearea.move_distance %></span><br />
                                             
                       <span><strong>Services Requested:</strong></span><br />
-                            <% if res.packing %>
-                              <span>packing</span><br />
-                            <% end  %>
-                            
-                            <% if res.moving %>
-                              <span>moving</span><br />
-                            <% end  %>
-                            
-                            <% if res.rickshaw %>
-                              <span>rickshaw</span><br />
-                            <% end  %>
-                            
-                            <% if res.car %>
-                              <span>car</span><br />
-                            <% end  %>
-                            
-                            <% if res.van %>
-                              <span>van</span><br />
-                            <% end  %>
-                            
-                            <% if res.truck %>
-                              <span>truck</span><br />
-                            <% end  %>
-                            
-                            <% if res.semi %>
-                              <span>semi</span><br />
+                          <% if res.packing %>
+                            <span>packing <i class="fa fa-suitcase"></i></span><br />
+                          <% end  %>
+                          
+                          <% if res.moving %>
+                            <span>moving <i class="fa fa-arrows"></i></span><br />
+                          <% end  %>
+                          
+                          <% if res.rickshaw %>
+                            <span>rickshaw</span><br />
+                          <% end  %>
+                          
+                          <% if res.car %>
+                            <span>car <i class="fa fa-car"></i></span><br />
+                          <% end  %>
+                          
+                          <% if res.van %>
+                            <span>van</span><br />
+                          <% end  %>
+                          
+                          <% if res.truck %>
+                            <span>truck <i class="fa fa-truck"></i></span><br />
+                          <% end  %>
+                          
+                          <% if res.semi %>
+                            <span>semi <i class="fa fa-truck"></i></span><br />
+                      
                             <% end  %>
                         </div>
                         </div>
