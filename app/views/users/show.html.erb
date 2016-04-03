@@ -77,19 +77,19 @@
     <div class="col-md-2">
     </div>
     <div class='col-md-10'>
-            <div class='well'><h3 class="text-center"><strong>Service Locations</strong></h3>
+            <div class='well'><h3 class="text-center"><strong>Movers Near You</strong></h3>
               <hr />
                 	<div class="row">
                 	<% @user.serviceareas.each do |servicearea| %>
                   <% res = servicearea.resources.first() %>
                   <div class="col-md-12">
                     <div class="panel panel-default">
-                    <div class="panel-heading text-center"><h4>Service Area</h4></div>  
-                    <div class="panel-body text-center"><span><strong>Address: </strong><%= servicearea.address %></span><br />
+                    <div class="panel-heading text-center"><h4>Mover <%= servicearea.id %></h4></div>  
+                    <div class="panel-body text-center"><span><strong>Mover Address: </strong><%= servicearea.address %></span><br />
                                             <span><strong>Service Location Area: </strong><%= servicearea.radius %></span><br />
                                             <span><strong>Distance: </strong><%= servicearea.move_distance %></span><br />
                                             
-                      <span><strong>Services Requested:</strong></span><br />
+                      <span><strong>Services Offered:</strong></span><br />
                           <% if res.packing %>
                             <span>packing <i class="fa fa-suitcase"></i></span><br />
                           <% end  %>

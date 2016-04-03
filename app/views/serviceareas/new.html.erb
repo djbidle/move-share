@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-lg-12 text-center v-center">
-      <h1>Service Area</h1>
+      <h1>Specify Service Area</h1>
         <div class="col-lg-12">
                 <%= form_for(@serviceareas) do |f| %>
                   <%= f.label :address %><br />
@@ -12,8 +12,9 @@
                   <%= f.text_field :radius, class: "input-group input-group-lg col-sm-offset-4 col-sm-4" %><br /><br />
                   
                   <%= f.label :move_distance %><br />
+                  <span>Enter value in meters</span><br />  
                   <%= f.text_field :move_distance, class: "input-group input-group-lg col-sm-offset-4 col-sm-4" %><br /><br />
-                    <p>Enter value in meters!</p>                    
+                                      
                     <%= fields_for(@resources) do |r| %>  
                       
                       
@@ -39,7 +40,7 @@
                       <%= r.label :semi %><br />
                     <% end %>
                     
-                  <%= f.submit "What's a service area?", class: "btn btn-lg btn-primary" %>
+                  <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
                 
                 <% end %>
         </div>
